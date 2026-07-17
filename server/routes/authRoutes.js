@@ -1,0 +1,21 @@
+import express from "express";
+
+import {
+  register,
+  login,
+} from "../controllers/authController.js";
+
+import {
+  registerValidator,
+  loginValidator,
+} from "../validators/authValidator.js";
+
+const router = express.Router();
+
+// Register User
+router.post("/register", registerValidator, register);
+
+// Login User
+router.post("/login", loginValidator, login);
+
+export default router;
